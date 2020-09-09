@@ -7,7 +7,7 @@ public class TiltGravity : MonoBehaviour
     public float gravityScale = 1.0f;
     private static Vector3 globalGravity;
     private Rigidbody rb;
-    private Touch touch;
+
     private Quaternion rotation;
     public Vector2 deltaPosition;
     public Vector2 rotationAdjust = new Vector2(1, 1);
@@ -15,7 +15,7 @@ public class TiltGravity : MonoBehaviour
     public float maxRotation = 20f;
     public float minRotation = -20f;
     public GameObject Ramp;
-    void OnEnable ()
+    private void OnEnable ()
     {
         globalGravity = Physics.gravity * gravityScale;
         rb = GetComponent<Rigidbody>();
@@ -24,22 +24,14 @@ public class TiltGravity : MonoBehaviour
         rb.AddForce(globalGravity, ForceMode.Acceleration);
     }
  
-    void Update()
+    private void Update()
     {
-        if(Input.touchCount > 0)
-        {
-            touch = Input.GetTouch(0);
-            if(touch.phase == TouchPhase.Moved)
-            {
-                rotation = Quaternion.Euler(-Mathf.Clamp(touch.deltaPosition.y * rotationAdjust.y, minRotation, maxRotation), 0, Mathf.Clamp(touch.deltaPosition.x * rotationAdjust.x, minRotation, maxRotation));
-                deltaPosition = touch.deltaPosition;
-            }
-        }
+        rotation = Quaternion.Euler(-Mathf.Clamp(rotationAdjust.y, minRotation, maxRotation), 0, Mathf.Clamp(rotationAdjust.x, minRotation, maxRotation));
     }
-    void FixedUpdate ()
+    
+    private void FixedUpdate ()
     {
         gravity = rotation * globalGravity;
-        
         rb.AddForce(gravity, ForceMode.Acceleration);
     }
 }
