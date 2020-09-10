@@ -7,14 +7,15 @@ public class TiltGravity : MonoBehaviour
     public float gravityScale = 1.0f;
     private static Vector3 globalGravity;
     private Rigidbody rb;
-
     private Quaternion rotation;
     public Vector2 deltaPosition;
     public Vector2 rotationAdjust = new Vector2(1, 1);
     public Vector3 gravity = new Vector3();
     public float maxRotation = 20f;
     public float minRotation = -20f;
-    public GameObject Ramp;
+    
+
+
     private void OnEnable ()
     {
         globalGravity = Physics.gravity * gravityScale;
@@ -26,7 +27,7 @@ public class TiltGravity : MonoBehaviour
  
     private void Update()
     {
-        rotation = Quaternion.Euler(-Mathf.Clamp(rotationAdjust.y, minRotation, maxRotation), 0, Mathf.Clamp(rotationAdjust.x, minRotation, maxRotation));
+        //rotation = Quaternion.Euler(-Mathf.Clamp(rotationAdjust.y, minRotation, maxRotation), 0, Mathf.Clamp(rotationAdjust.x, minRotation, maxRotation));
     }
     
     private void FixedUpdate ()
