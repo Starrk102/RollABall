@@ -2,38 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour 
+public class Player : MonoBehaviour
 {
-     public float rotatespeed = 10f;
-    private float _startingPosition;
+    private Touch touch;
+    private Vector2 touchPosition;
+    private Quaternion rotationY;
+    private float rotateSpeedModifier = 0.5f;
 
- 
-     private void Update () 
-     {
-     if (Input.touchCount > 0)
-     {
-         Touch touch = Input.GetTouch(0);
-         switch (touch.phase)
-         {
-             case TouchPhase.Began:
-                 _startingPosition = touch.position.x;
-                 break;
-             case TouchPhase.Moved:
-                 if (_startingPosition > touch.position.x)
-                 {
-                     transform.Rotate(Vector3.back, -rotatespeed * Time.deltaTime);
-                 }
-                 else if (_startingPosition < touch.position.x)
-                 {
-                     transform.Rotate(Vector3.back, rotatespeed * Time.deltaTime);
-                 }
-                 break;
-             case TouchPhase.Ended:
-                 Debug.Log("Touch Phase Ended.");
-                 break;
-             }
-         }
-     }
+
+    private void Update()
+    {
+        if(Input.touchCount > 0)
+        {
+            touch = Input.GetTouch(0);
+            
+            if(touch.phase == TouchPhase.Moved)
+            {
+                rotationY = Quaternion.Euler(0f, 0f, -touch.deltaPosition.x * rotateSpeedModifier);
+                transform.rotation = rotationY * transform.rotation;
+            }
+        } 
     }
+}
  
  

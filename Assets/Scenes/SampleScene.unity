@@ -353,7 +353,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 430702256}
-  - component: {fileID: 430702257}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -377,19 +376,6 @@ Transform:
   m_Father: {fileID: 1278684413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &430702257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430702255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ed9c48d9ba1b47468741e013c7ccccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotatespeed: 10
 --- !u!1001 &563956649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -573,6 +559,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -664,6 +651,18 @@ MonoBehaviour:
   smoothSpeed: 5
   useFixedLookDirection: 1
   fixedLookDirection: {x: 0, y: 0, z: 1}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed9c48d9ba1b47468741e013c7ccccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1259037861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1247,7 +1246,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1995138975}
-  - component: {fileID: 1995138976}
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
@@ -1271,19 +1269,6 @@ Transform:
   m_Father: {fileID: 1278684413}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1995138976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1995138974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ed9c48d9ba1b47468741e013c7ccccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotatespeed: 10
 --- !u!1 &2091005071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,4 +1398,3 @@ MonoBehaviour:
   gravity: {x: 0, y: 0, z: 0}
   maxRotation: 20
   minRotation: -20
-  Ramp: {fileID: 1278684412}
